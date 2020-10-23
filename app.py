@@ -5,7 +5,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 
 ########### read in data
-win_loss_df = pd.read_csv("win_loss_df.csv").sort_values(['wins', 'points_for'], ascending = False)
+win_loss_df = pd.read_pickle("win_loss_df.pkl").sort_values(['wins', 'points_for'], ascending = False)
 
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
