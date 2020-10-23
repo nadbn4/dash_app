@@ -30,18 +30,18 @@ win_loss_data = [win_bars, loss_bars]
 
 #fig.update_yaxes(tickvals=[5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5], ticktext = [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5])
 
-#win_loss_layout = go.Layout(barmode = 'overlay',
-#                            hovermode = 'x',
-#                            title = 'Wins/Losses',
-#                            yaxis = {'tickvals' : [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5],
-#                                     'ticktext' : [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5]
-#                                    }
-#)
-
 win_loss_layout = go.Layout(barmode = 'overlay',
                             hovermode = 'x',
-                            title = 'Wins/Losses'
+                            title = 'Wins/Losses',
+                            yaxis = dict(tickvals = [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5],
+                                     ticktext = [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5]
+                                        )
 )
+
+#win_loss_layout = go.Layout(barmode = 'overlay',
+#                            hovermode = 'x',
+#                            title = 'Wins/Losses'
+#)
 
 win_loss_fig = go.Figure(data=win_loss_data, layout=win_loss_layout)
 
