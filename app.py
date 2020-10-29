@@ -20,16 +20,17 @@ graph_options = ['wins/losses', 'points for/points against']
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
 
-#weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week',
-#                            hover_name='owner_team_name', hover_data={"week" : False,
-#                                                                      'owner_team_name' : False,
-#                                                                      'score' : True
-#                                                                     }
-#                           )
+weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week',
+                            hover_name='owner_team_name', hover_data={"week" : False,
+                                                                      'owner_team_name' : False,
+                                                                      'score' : True
+                                                                     }
+                           )
 
-weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week')
+#weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week')
 
 weekly_points_fig.update_xaxes(range=[0.95, 7.05], dtick=1)
+weekly_points_fig.layout.update(showlegend=False)
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
