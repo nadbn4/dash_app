@@ -5,7 +5,6 @@ import dash
 import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
-from jupyter_dash import JupyterDash
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import plotly.express as px
@@ -33,7 +32,6 @@ weekly_points_fig.update_xaxes(range=[0.95, 7.05], dtick=1)
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-#app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 
