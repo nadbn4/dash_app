@@ -50,12 +50,12 @@ app.layout = html.Div(children = [
         html.Div([
             html.H3(),
             dcc.Graph(id='win_loss_fig')
-        ], className="six columns"),
+        ], className="six columns", style = {'width': '48%'}),
 
         html.Div([
             html.H3(),
             dcc.Graph(id='weekly_points', figure=weekly_points_fig)
-        ], className="six columns"),
+        ], className="six columns", style = {'width': '48%'}),
     ], className="row"),
     html.Div([
         html.Div([
