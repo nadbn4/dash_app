@@ -30,7 +30,7 @@ weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_tea
 #weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week')
 
 weekly_points_fig.update_xaxes(range=[0.95, 7.05], dtick=1)
-weekly_points_fig.layout.update(showlegend=False)
+#weekly_points_fig.layout.update(showlegend=False)
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
