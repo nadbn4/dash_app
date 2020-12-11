@@ -1,4 +1,4 @@
-### code version to run locally ###
+### code version to run from Haroku ###
 
 import pandas as pd
 import dash
@@ -30,7 +30,7 @@ weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_tea
 #weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week')
 
 weekly_points_fig.update_xaxes(range=[0.95, 7.05], dtick=1)
-#weekly_points_fig.layout.update(showlegend=False)
+weekly_points_fig.layout.update(showlegend=False)
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -40,50 +40,54 @@ app.title=tabtitle
 
 
 ########### Set up the layout
-app.layout = html.Div(children = [
-    html.H1(myheading),
-    html.Div(
-        dcc.Dropdown(id = 'graph_option', 
-                     options = [{'label' : i, 'value' : i} for i in graph_options],
-                     value = 'wins/losses'
-        ),
-        style = {'width': '15%'}
-    ),
-    html.Div([
-        html.Div([
-            html.H3(),
-            dcc.Graph(id='win_loss_fig')
-        ], className="six columns"),
+app.layout = html.Div([
+    dcc.Tabs([
+        dcc.Tab(label = 'League Overview', children = [
+            html.H1(myheading),
+            html.Div(
+                dcc.Dropdown(id = 'graph_option', 
+                             options = [{'label' : i, 'value' : i} for i in graph_options],
+                             value = 'wins/losses'
+                ),
+                style = {'width': '15%'}
+            ),
+            html.Div([
+                html.Div([
+                    html.H3(),
+                    dcc.Graph(id='win_loss_fig')
+                ], className="six columns"),
 
-        html.Div([
-            html.H3(),
-            dcc.Graph(id='weekly_points', figure=weekly_points_fig)
-        ], className="six columns"),
-    ], className="row"),
-    html.Div([
-        html.Div([
-            html.H3(),
-            dcc.Dropdown(id='week', 
-                         options = [{'label' : i, 'value' : i} for i in rosters_df['week'].unique()],
-                         value = 1
-                        )
-        ], className="six columns", style = {'width': '5%'}),
-        html.Div([
-            html.H3(),
-            dcc.Dropdown(id='owner_team', 
-                         options = [{'label' : i, 'value' : i} for i in rosters_df['owner_team'].unique()],
-                         value = 'Happy Rock Homewreckers'
-                        )
-        ], className="six columns", style = {'width': '25%'}),
-    ], className="row"),    
-    html.Div(
-        dash_table.DataTable(id = 'roster_table',
-                             columns=[{"name": i, 
-                                       "id": i} for i in rosters_df.columns]
+                html.Div([
+                    html.H3(),
+                    dcc.Graph(id='weekly_points', figure=weekly_points_fig)
+                ], className="six columns"),
+            ], className="row"),
+            html.Div([
+                html.Div([
+                    html.H3(),
+                    dcc.Dropdown(id='week', 
+                                 options = [{'label' : i, 'value' : i} for i in rosters_df['week'].unique()],
+                                 value = 1
+                                )
+                ], className="six columns", style = {'width': '5%'}),
+                html.Div([
+                    html.H3(),
+                    dcc.Dropdown(id='owner_team', 
+                                 options = [{'label' : i, 'value' : i} for i in rosters_df['owner_team'].unique()],
+                                 value = 'Happy Rock Homewreckers'
+                                )
+                ], className="six columns", style = {'width': '25%'}),
+            ], className="row"),    
+            html.Div(
+                dash_table.DataTable(id = 'roster_table',
+                                     columns=[{"name": i, "id": i} for i in rosters_df.columns]
         )
     )
-]
-)
+]),
+        dcc.Tab(label = 'Weekly Matchup Rankings'),
+        dcc.Tab(label = 'Weekly Roster & Predictions')
+])
+])
 
 @app.callback(
     Output('win_loss_fig', 'figure'),
