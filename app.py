@@ -41,9 +41,10 @@ app.title=tabtitle
 
 ########### Set up the layout
 app.layout = html.Div([
+	html.H1(myheading),
     dcc.Tabs([
         dcc.Tab(label = 'League Overview', children = [
-            html.H1(myheading),
+            #html.H1(myheading),
             html.Div(
                 dcc.Dropdown(id = 'graph_option', 
                              options = [{'label' : i, 'value' : i} for i in graph_options],
