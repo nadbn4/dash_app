@@ -229,7 +229,7 @@ def update_table(week, team):
      Input('subset_option', 'value')
     ])
 
-def update_rankings_table(num_weeks, sort_value):
+def update_table(num_weeks, sort_value):
     prior_weeks = agg_week(tm_game_data, num_weeks)
 
     # aggregate qb stats
