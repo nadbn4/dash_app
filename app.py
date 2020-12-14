@@ -14,7 +14,9 @@ win_loss_df = pd.read_pickle("win_loss_df.pkl").sort_values(['wins', 'points_for
 matchups_df = pd.read_csv("matchups_df.csv")
 rosters_df = pd.read_csv("rosters_df.csv")
 rosters_df = rosters_df[rosters_df.columns[rosters_df.columns!='Unnamed: 0']]
-tm_game_data = pd.read_csv("tm_game_data.csv")
+tm_game_data = pd.read_csv("tm_game_data.csv") 
+
+max_week = tm_game_data['week'].max()
 
 ########### define functions
 # create agg_week function to sum all stats within the user defined time frame
@@ -114,10 +116,10 @@ app.layout = html.Div([
                               type="number", 
                               placeholder="num weeks", 
                               min=1, 
-                              max=tm_game_data['week'].max(), 
+                              max=max_week, 
                               step=1,
                     )
-                ], className="six columns", style = {'width': '5%'}),
+                ], className="six columns", style = {'width': '10%'}),
                 html.Div([
                     html.H3(),
                     dcc.Dropdown(id = 'subset_option', 
