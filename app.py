@@ -140,8 +140,7 @@ app.layout = html.Div([
                 ], className="six columns", style = {'width': '10%'})
             ], className="row"),
             html.Div(
-                dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in sorted_df.columns]
+                dash_table.DataTable(id = 'rankings_table'
                                     )
             )
         ]),
