@@ -137,7 +137,7 @@ app.layout = html.Div([
             ], className="row"),
             html.Div(
                 dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in columns]
+                                     columns=[{"name": i, "id": i} for i in tm_game_data.columns]
                                     )
             )
         ]),
@@ -413,7 +413,7 @@ def update_table(num_weeks, sort_value):
     
 #     sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
 
-    return prior_weeks.to_dict(orient='records')
+    return prior_weeks.head().to_dict(orient='records')
 
 if __name__ == '__main__':
     app.run_server()
