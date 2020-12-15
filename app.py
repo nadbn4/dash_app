@@ -65,6 +65,10 @@ more_columns = ['pass_td_per_gm', 'pass_td_alw_per_gm', 'pass_yrd_per_gm',
        'sacks_taken_per_gm', 'kck_pts_per_gm', 'kck_pts_alw_per_gm',
        'return_yrds_per_gm', 'return_yrds_alw_per_gm']
 new_columns = tm_game_data.columns.values.tolist() + more_columns
+this_week_columns = ['week', 'team_abv', 'home', 'oppn', 'pass_td', 'pass_yrd_per_pass', 'pass_1st_dwn', 'pass_yrd',
+                     'rush_td', 'rush_yrd_per_rush', 'rush_1st_down', 'rush_yrd', 'rec_td', 'rec_yrd_per_gm',
+                     'rec_yrd_per_tar', 'rec_per_gm', 'rec_1st_down', 'def_st_td', 'def_sack', 'def_int', 'def_fbml',
+                     'def_st_td_alw', 'def_st_yrd_alw', 'kck_pts', 'rz_diff', 'to_diff']
 
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
@@ -152,7 +156,7 @@ app.layout = html.Div([
             ], className="row"),
             html.Div(
                 dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in new_columns]
+                                     columns=[{"name": i, "id": i} for i in this_week_columns]
                                     )
             )
         ]),
@@ -295,113 +299,113 @@ def update_table(num_weeks, sort_value):
     prior_weeks['return_yrds_alw_per_gm'] = (prior_weeks['kick_ret_yrds_alw'] + prior_weeks['punt_ret_yrds_alw']) / \
                                             prior_weeks['gp']
     
-#     # qb
-#     # multiply how many TDs thrown per game by team and how many passing TDs allowed per game by opponent
-#     this_week['pass_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_per_gm') * 
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'pass_td_alw_per_gm'))
+    # qb
+    # multiply how many TDs thrown per game by team and how many passing TDs allowed per game by opponent
+    this_week['pass_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_per_gm') * 
+                                     get_values_list(prior_weeks, this_week['oppn'], 'pass_td_alw_per_gm'))
 
-#     # multiply how many yards per pass by team and how many yards per pass allowed by opponent
-#     this_week['pass_yrd_per_pass'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_per_pass') * 
-#                                                get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_alw_per_pass_alw'))
+    # multiply how many yards per pass by team and how many yards per pass allowed by opponent
+    this_week['pass_yrd_per_pass'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_per_pass') * 
+                                               get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_alw_per_pass_alw'))
 
-#     # multiply how many passing 1st downs per game by team and how many passing 1st downs per game allowed by opponent
-#     this_week['pass_1st_dwn'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_1st_down_per_gm') * 
-#                                           get_values_list(prior_weeks, this_week['oppn'], 'pass_1st_down_alw_per_gm'))
+    # multiply how many passing 1st downs per game by team and how many passing 1st downs per game allowed by opponent
+    this_week['pass_1st_dwn'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_1st_down_per_gm') * 
+                                          get_values_list(prior_weeks, this_week['oppn'], 'pass_1st_down_alw_per_gm'))
 
-#     # multiply passing yards per game by team and passing yards per game allowed by opponent
-#     this_week['pass_yrd'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_per_gm') * 
-#                                       get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_alw_per_gm'))
+    # multiply passing yards per game by team and passing yards per game allowed by opponent
+    this_week['pass_yrd'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_per_gm') * 
+                                      get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_alw_per_gm'))
 
-#     # rb
-#     # multiply rushing TDs per game by team and rushing TDs allowed per game by opponent
-#     this_week['rush_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_td_per_gm') * 
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'rush_td_alw_per_gm'))
+    # rb
+    # multiply rushing TDs per game by team and rushing TDs allowed per game by opponent
+    this_week['rush_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_td_per_gm') * 
+                                     get_values_list(prior_weeks, this_week['oppn'], 'rush_td_alw_per_gm'))
 
-#     # multiply how many yards per rush by team and how many yards per rush allowed by opponent
-#     this_week['rush_yrd_per_rush'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_per_rush') * 
-#                                                get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_alw_per_rush_alw'))
+    # multiply how many yards per rush by team and how many yards per rush allowed by opponent
+    this_week['rush_yrd_per_rush'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_per_rush') * 
+                                               get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_alw_per_rush_alw'))
 
-#     # multiply how many rushing 1st downs per game by team and how many rushing 1st downs per game allowed by opponent
-#     this_week['rush_1st_down'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_1st_down_per_gm') * 
-#                                            get_values_list(prior_weeks, this_week['oppn'], 'rush_1st_down_alw_per_gm'))
+    # multiply how many rushing 1st downs per game by team and how many rushing 1st downs per game allowed by opponent
+    this_week['rush_1st_down'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_1st_down_per_gm') * 
+                                           get_values_list(prior_weeks, this_week['oppn'], 'rush_1st_down_alw_per_gm'))
 
-#     # multiply rushing yards per game by team and rushing yards per game allowed by opponent
-#     this_week['rush_yrd'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_per_gm') * 
-#                                       get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_alw_per_gm'))
+    # multiply rushing yards per game by team and rushing yards per game allowed by opponent
+    this_week['rush_yrd'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_per_gm') * 
+                                      get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_alw_per_gm'))
 
-#     # wr
-#     # multiply passing TDs per game by team and passing TDs allowed per game by opponent
-#     this_week['rec_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_per_gm') * 
-#                                     get_values_list(prior_weeks, this_week['oppn'], 'pass_td_alw_per_gm'))
+    # wr
+    # multiply passing TDs per game by team and passing TDs allowed per game by opponent
+    this_week['rec_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_per_gm') * 
+                                    get_values_list(prior_weeks, this_week['oppn'], 'pass_td_alw_per_gm'))
 
-#     # multiply receiving yards per game by team and receiving yards per game allowed by opponent
-#     this_week['rec_yrd_per_gm'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_yrd_per_gm') * 
-#                                             get_values_list(prior_weeks, this_week['oppn'], 'rec_yrd_alw_per_gm'))
+    # multiply receiving yards per game by team and receiving yards per game allowed by opponent
+    this_week['rec_yrd_per_gm'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_yrd_per_gm') * 
+                                            get_values_list(prior_weeks, this_week['oppn'], 'rec_yrd_alw_per_gm'))
 
-#     # multiply receiving yards per target by team and receiving yards per target allowed by opponent
-#     this_week['rec_yrd_per_tar'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_yrd_per_tar') * 
-#                                              get_values_list(prior_weeks, this_week['oppn'], 'rec_yrd_alw_per_tar_alw'))
+    # multiply receiving yards per target by team and receiving yards per target allowed by opponent
+    this_week['rec_yrd_per_tar'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_yrd_per_tar') * 
+                                             get_values_list(prior_weeks, this_week['oppn'], 'rec_yrd_alw_per_tar_alw'))
 
-#     # multiply receptions per game by team and receptions per game allowed by opponent
-#     this_week['rec_per_gm'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_per_gm') * 
-#                                         get_values_list(prior_weeks, this_week['oppn'], 'rec_alw_per_gm'))
+    # multiply receptions per game by team and receptions per game allowed by opponent
+    this_week['rec_per_gm'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'rec_per_gm') * 
+                                        get_values_list(prior_weeks, this_week['oppn'], 'rec_alw_per_gm'))
 
-#     # multiply how many receiving 1st downs per game by team and how many receiving 1st downs per game allowed by opponent
-#     this_week['rec_1st_down'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_1st_down_per_gm') * 
-#                                           get_values_list(prior_weeks, this_week['oppn'], 'pass_1st_down_alw_per_gm'))
+    # multiply how many receiving 1st downs per game by team and how many receiving 1st downs per game allowed by opponent
+    this_week['rec_1st_down'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'pass_1st_down_per_gm') * 
+                                          get_values_list(prior_weeks, this_week['oppn'], 'pass_1st_down_alw_per_gm'))
 
-#     # def
-#     # multiply def and st TDs per game by team and def and st TDs allowed per game by opponent
-#     this_week['def_st_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'def_st_td_per_gm') * 
-#                                        get_values_list(prior_weeks, this_week['oppn'], 'def_st_td_alw_per_gm'))
+    # def
+    # multiply def and st TDs per game by team and def and st TDs allowed per game by opponent
+    this_week['def_st_td'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'def_st_td_per_gm') * 
+                                       get_values_list(prior_weeks, this_week['oppn'], 'def_st_td_alw_per_gm'))
 
-#     # multiply def sacks per game by team and sacks taken per game by opponent
-#     this_week['def_sack'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'sacks_per_gm') * 
-#                                       get_values_list(prior_weeks, this_week['oppn'], 'sacks_taken_per_gm'))
+    # multiply def sacks per game by team and sacks taken per game by opponent
+    this_week['def_sack'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'sacks_per_gm') * 
+                                      get_values_list(prior_weeks, this_week['oppn'], 'sacks_taken_per_gm'))
 
-#     # multiply def interceptions per game by team and def interceptions allowed per game by opponent
-#     this_week['def_int'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'int_per_gm') * 
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'int_alw_per_gm'))
+    # multiply def interceptions per game by team and def interceptions allowed per game by opponent
+    this_week['def_int'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'int_per_gm') * 
+                                     get_values_list(prior_weeks, this_week['oppn'], 'int_alw_per_gm'))
 
-#     # multiply def fumble recoveries per game by team and fumbles lost per game by opponent
-#     this_week['def_fbml'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'fumble_per_gm') * 
-#                                       get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost_per_gm'))
+    # multiply def fumble recoveries per game by team and fumbles lost per game by opponent
+    this_week['def_fbml'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'fumble_per_gm') * 
+                                      get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost_per_gm'))
 
-#     # multiply passing/rushing/def/st TDs allowed per game by team and passing/rushing/def/st TDs per game by opponent
-#     this_week['def_st_td_alw'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_alw_per_gm') +
-#                                             get_values_list(prior_weeks, this_week['team_abv'], 'rush_td_alw_per_gm') + 
-#                                             get_values_list(prior_weeks, this_week['team_abv'], 'def_st_td_alw_per_gm')) * 
-#                                             (get_values_list(prior_weeks, this_week['oppn'], 'pass_td_per_gm') + 
-#                                             get_values_list(prior_weeks, this_week['oppn'], 'rush_td_per_gm') + 
-#                                             get_values_list(prior_weeks, this_week['oppn'], 'def_st_td_per_gm')))
+    # multiply passing/rushing/def/st TDs allowed per game by team and passing/rushing/def/st TDs per game by opponent
+    this_week['def_st_td_alw'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'pass_td_alw_per_gm') +
+                                            get_values_list(prior_weeks, this_week['team_abv'], 'rush_td_alw_per_gm') + 
+                                            get_values_list(prior_weeks, this_week['team_abv'], 'def_st_td_alw_per_gm')) * 
+                                            (get_values_list(prior_weeks, this_week['oppn'], 'pass_td_per_gm') + 
+                                            get_values_list(prior_weeks, this_week['oppn'], 'rush_td_per_gm') + 
+                                            get_values_list(prior_weeks, this_week['oppn'], 'def_st_td_per_gm')))
 
-#     # multiply passing/rushing/return yards allowed per game by team and passing/rushing/return yards per game by opponent
-#     this_week['def_st_yrd_alw'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_alw_per_gm') +
-#                                              get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_alw_per_gm') + 
-#                                              get_values_list(prior_weeks, this_week['team_abv'], 'return_yrds_alw_per_gm')) * 
-#                                              (get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_per_gm') + 
-#                                              get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_per_gm') + 
-#                                              get_values_list(prior_weeks, this_week['oppn'], 'return_yrds_per_gm')))
+    # multiply passing/rushing/return yards allowed per game by team and passing/rushing/return yards per game by opponent
+    this_week['def_st_yrd_alw'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'pass_yrd_alw_per_gm') +
+                                             get_values_list(prior_weeks, this_week['team_abv'], 'rush_yrd_alw_per_gm') + 
+                                             get_values_list(prior_weeks, this_week['team_abv'], 'return_yrds_alw_per_gm')) * 
+                                             (get_values_list(prior_weeks, this_week['oppn'], 'pass_yrd_per_gm') + 
+                                             get_values_list(prior_weeks, this_week['oppn'], 'rush_yrd_per_gm') + 
+                                             get_values_list(prior_weeks, this_week['oppn'], 'return_yrds_per_gm')))
 
-#     # st
-#     # multiply kick points per game by team and kick points allowed per game by opponent
-#     this_week['kck_pts'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'kck_pts_per_gm') * 
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'kck_pts_alw_per_gm'))
+    # st
+    # multiply kick points per game by team and kick points allowed per game by opponent
+    this_week['kck_pts'] = pd.Series(get_values_list(prior_weeks, this_week['team_abv'], 'kck_pts_per_gm') * 
+                                     get_values_list(prior_weeks, this_week['oppn'], 'kck_pts_alw_per_gm'))
 
-#     # misc
-#     # calculate redzone differential
-#     # (conversions divided attempts) minus the inverse (1 minus allowed conversions divided by allowed attempts)
-#     this_week['rz_diff'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'redzone_con') /
-#                                      get_values_list(prior_weeks, this_week['team_abv'], 'redzone_att')) -
-#                                      (1 - get_values_list(prior_weeks, this_week['oppn'], 'redzone_con_alw') /
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'redzone_att_alw')))
+    # misc
+    # calculate redzone differential
+    # (conversions divided attempts) minus the inverse (1 minus allowed conversions divided by allowed attempts)
+    this_week['rz_diff'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'redzone_con') /
+                                     get_values_list(prior_weeks, this_week['team_abv'], 'redzone_att')) -
+                                     (1 - get_values_list(prior_weeks, this_week['oppn'], 'redzone_con_alw') /
+                                     get_values_list(prior_weeks, this_week['oppn'], 'redzone_att_alw')))
 
-#     # calculate turnover differential
-#     # (interceptions plus fumbles) minus opponent's (interceptions thrown plus fumbles lost)
-#     this_week['to_diff'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'def_ints') +
-#                                      get_values_list(prior_weeks, this_week['team_abv'], 'fumble_rec')) -
-#                                      (get_values_list(prior_weeks, this_week['oppn'], 'int_thrown') +
-#                                      get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost')))
+    # calculate turnover differential
+    # (interceptions plus fumbles) minus opponent's (interceptions thrown plus fumbles lost)
+    this_week['to_diff'] = pd.Series((get_values_list(prior_weeks, this_week['team_abv'], 'def_ints') +
+                                     get_values_list(prior_weeks, this_week['team_abv'], 'fumble_rec')) -
+                                     (get_values_list(prior_weeks, this_week['oppn'], 'int_thrown') +
+                                     get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost')))
     
 #     this_week_rank = this_week.copy()
     
