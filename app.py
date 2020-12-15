@@ -49,6 +49,7 @@ ascending_true = ['def_st_td_alw', 'def_st_yrd_alw']
 
 graph_options = ['wins/losses', 'points for/points against']
 subset_options = ['QB', 'RB', 'WRTE', 'DEF', 'KICK']
+columns = ['week', 'team_abv', 'oppn', 'pos']
 
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
@@ -121,15 +122,10 @@ app.layout = html.Div([
             html.Div([
                 html.Div([
                     html.H3(),
-                    dcc.Input(id="input_range", 
-                              type="number", 
-                              placeholder=4, 
-                              min=1, 
-                              minLength=1,
-                              max=max_week,
-                              maxLength=2,
-                              step=1,
-                    )
+                    dcc.Dropdown(id='input_range', 
+                                 options = [{'label' : i, 'value' : i} for i in rosters_df['week'].unique()],
+                                 value = 1
+                                )
                 ], className="six columns", style = {'width': '10%'}),
                 html.Div([
                     html.H3(),
@@ -140,7 +136,8 @@ app.layout = html.Div([
                 ], className="six columns", style = {'width': '10%'})
             ], className="row"),
             html.Div(
-                dash_table.DataTable(id = 'rankings_table'
+                dash_table.DataTable(id = 'rankings_table',
+                                     columns=[{"name": i, "id": i} for i in columns]
                                     )
             )
         ]),
