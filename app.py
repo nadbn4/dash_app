@@ -51,7 +51,7 @@ ascending_true = ['def_st_td_alw', 'def_st_yrd_alw']
 
 graph_options = ['wins/losses', 'points for/points against']
 subset_options = ['QB', 'RB', 'WRTE', 'DEF', 'KICK']
-columns = ['week', 'team_abv', 'oppn', 'pos']
+columns = ['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']
 
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
@@ -413,7 +413,8 @@ def update_table(num_weeks, sort_value):
     this_week_rank_avg['DEF'] = this_week_rank.iloc[:, [17, 18, 19, 20, 22, 23, 24, 25]].mean(axis=1)
     this_week_rank_avg['KICK'] = this_week_rank.iloc[:, [21, 22, 23]].mean(axis=1)
     
-    sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
+    #sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
+    sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']]
 
     return sorted_df.to_dict(orient='records')
 
