@@ -433,7 +433,7 @@ def update_table(num_weeks, sort_value):
 #     #sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
 #     sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']]
 
-    return prior_weeks.head().to_dict(orient='records')
+    return this_week.head().to_dict(orient='records')
 
 if __name__ == '__main__':
     app.run_server()
