@@ -64,6 +64,7 @@ more_columns = ['pass_td_per_gm', 'pass_td_alw_per_gm', 'pass_yrd_per_gm',
        'fumble_lost_per_gm', 'int_per_gm', 'int_alw_per_gm', 'sacks_per_gm',
        'sacks_taken_per_gm', 'kck_pts_per_gm', 'kck_pts_alw_per_gm',
        'return_yrds_per_gm', 'return_yrds_alw_per_gm']
+new_columns = tm_game_data.columns.values.tolist() + more_columns
 
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
@@ -151,7 +152,7 @@ app.layout = html.Div([
             ], className="row"),
             html.Div(
                 dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in tm_game_data.columns + more_columns]
+                                     columns=[{"name": i, "id": i} for i in new_columns]
                                     )
             )
         ]),
