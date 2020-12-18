@@ -16,8 +16,8 @@ rosters_df = pd.read_csv("rosters_df.csv")
 rosters_df = rosters_df[rosters_df.columns[rosters_df.columns!='Unnamed: 0']]
 tm_game_data = pd.read_csv("tm_game_data.csv")
 tm_game_data = tm_game_data[tm_game_data.columns[tm_game_data.columns!='Unnamed: 0']]
-this_week_df = pd.read_csv("this_week.csv")
-this_week_df = this_week_df[this_week_df.columns[this_week_df.columns!='Unnamed: 0']]
+this_week = pd.read_csv("this_week.csv")
+this_week = this_week[this_week.columns[this_week.columns!='Unnamed: 0']]
 
 max_week = tm_game_data['week'].max()
 
