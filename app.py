@@ -298,6 +298,8 @@ def update_table(num_weeks, sort_value):
     prior_weeks['return_yrds_per_gm'] = (prior_weeks['kick_ret_yrds'] + prior_weeks['punt_ret_yrds']) / prior_weeks['gp']
     prior_weeks['return_yrds_alw_per_gm'] = (prior_weeks['kick_ret_yrds_alw'] + prior_weeks['punt_ret_yrds_alw']) / \
                                             prior_weeks['gp']
+											
+	this_week = this_week.copy()
     
     # qb
     # multiply how many TDs thrown per game by team and how many passing TDs allowed per game by opponent
