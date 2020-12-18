@@ -36,8 +36,9 @@ def agg_week(weekly_boxscore, num_weeks):
 def get_values_list(prior_weeks, team, column):   
     data_list = []
     for i in team.tolist():
-        team_idx = prior_weeks.index[prior_weeks['team_abv'] == i][0]
-        data_value = prior_weeks.at[team_idx, column]
+        #team_idx = prior_weeks.index[prior_weeks['team_abv'] == i][0]
+        #data_value = prior_weeks.at[team_idx, column]
+        data_value = prior_weeks.loc[prior_weeks['team_abv'] == i, column].iloc[0]
         data_list.append(data_value)
     return np.array(data_list)
 
