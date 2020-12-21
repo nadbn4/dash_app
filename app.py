@@ -161,7 +161,7 @@ app.layout = html.Div([
             ], className="row"),
             html.Div(
                 dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in this_week_columns]
+                                     columns=[{"name": i, "id": i} for i in columns]
                                     )
             )
         ]),
@@ -421,33 +421,33 @@ def update_table(num_weeks, sort_value):
                                      (get_values_list(prior_weeks, this_week['oppn'], 'int_thrown') +
                                      get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost')))
     
-#     this_week_rank = this_week.copy()
+    #this_week_rank = this_week.copy()
     
-#     # rank all columns in ascending_false
-#     for i in ascending_false:
-#         this_week_rank[i] = this_week[i].rank(method='average', ascending = False)
+    # rank all columns in ascending_false
+    for i in ascending_false:
+        this_week_rank[i] = this_week[i].rank(method='average', ascending = False)
 
-#     # rank all columns in ascending_false
-#     for i in ascending_true:
-#         this_week_rank[i] = this_week[i].rank(method='average', ascending = True)
+    # rank all columns in ascending_false
+    for i in ascending_true:
+        this_week_rank[i] = this_week[i].rank(method='average', ascending = True)
         
-#     # create dataframe of current weeks matchups
-#     this_week_rank_avg = this_week.copy()
+    # create dataframe of current weeks matchups
+    this_week_rank_avg = this_week.copy()
 
-#     # add "@" to oppn column since all opponents are the home teams due to how the schedule is scraped from ESPN
-#     this_week_rank_avg['oppn'] = '@' + this_week_rank_avg['oppn'].astype(str)
+    # add "@" to oppn column since all opponents are the home teams due to how the schedule is scraped from ESPN
+    this_week_rank_avg['oppn'] = '@' + this_week_rank_avg['oppn'].astype(str)
 
-#     # group by QB, RB, WR/TE, DEF, and ST using row means
-#     this_week_rank_avg['QB'] = this_week_rank.iloc[:, [4, 5, 6, 7, 22, 23]].mean(axis=1)
-#     this_week_rank_avg['RB'] = this_week_rank.iloc[:, [8, 9, 10, 11, 22, 23]].mean(axis=1)
-#     this_week_rank_avg['WRTE'] = this_week_rank.iloc[:, [12, 13, 14, 15, 16, 22, 23]].mean(axis=1)
-#     this_week_rank_avg['DEF'] = this_week_rank.iloc[:, [17, 18, 19, 20, 22, 23, 24, 25]].mean(axis=1)
-#     this_week_rank_avg['KICK'] = this_week_rank.iloc[:, [21, 22, 23]].mean(axis=1)
+    # group by QB, RB, WR/TE, DEF, and ST using row means
+    this_week_rank_avg['QB'] = this_week_rank.iloc[:, [4, 5, 6, 7, 22, 23]].mean(axis=1)
+    this_week_rank_avg['RB'] = this_week_rank.iloc[:, [8, 9, 10, 11, 22, 23]].mean(axis=1)
+    this_week_rank_avg['WRTE'] = this_week_rank.iloc[:, [12, 13, 14, 15, 16, 22, 23]].mean(axis=1)
+    this_week_rank_avg['DEF'] = this_week_rank.iloc[:, [17, 18, 19, 20, 22, 23, 24, 25]].mean(axis=1)
+    this_week_rank_avg['KICK'] = this_week_rank.iloc[:, [21, 22, 23]].mean(axis=1)
     
-#     #sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
-#     sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']]
+    #sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
+    sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']]
 
-    return this_week.to_dict(orient='records')
+    return sorted_df.to_dict(orient='records')
 
 if __name__ == '__main__':
     app.run_server()
