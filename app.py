@@ -39,7 +39,7 @@ def get_values_list(prior_weeks_df, team, column):
     data_list = []
     for i in team.tolist():
         team_idx = prior_weeks_df.index[prior_weeks_df['team_abv'] == i][0]
-        data_value = prior_weeks.at[team_idx, column]
+        data_value = prior_weeks_df.at[team_idx, column]
         #data_value = prior_weeks_df.loc[prior_weeks_df['team_abv'] == i, column].iloc[0]
         data_list.append(data_value)
     return np.array(data_list)
