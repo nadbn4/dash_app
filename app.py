@@ -164,7 +164,14 @@ app.layout = html.Div([
                                     )
             )
         ]),
-        dcc.Tab(label = 'Weekly Raytonia Beach Rosters & Predictions')
+        dcc.Tab(label = 'Weekly Raytonia Beach Rosters & Predictions', children = [
+            html.Div(
+                dash_table.DataTable(id = 'this_week_table',
+                                     columns=[{"name": i, "id": i} for i in this_week],
+                                     data = this_week.to_dict('records')
+                                    )
+            )
+        ])
 ])
 ])
 
