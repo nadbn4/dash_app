@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import plotly.express as px
 
-from jupyter_dash import JupyterDash
+#from jupyter_dash import JupyterDash
 
 ########### read in data
 win_loss_df = pd.read_pickle("win_loss_df.pkl").sort_values(['wins', 'points_for'], ascending = False)
@@ -38,7 +38,7 @@ def agg_week(weekly_boxscore, num_weeks):
 def get_values_list(prior_weeks_df, team, column):   
     data_list = []
     for i in team.tolist():
-        team_idx = prior_weeks.index[prior_weeks['team_abv'] == i][0]
+        team_idx = prior_weeks_df.index[prior_weeks_df['team_abv'] == i][0]
         data_value = prior_weeks.at[team_idx, column]
         #data_value = prior_weeks_df.loc[prior_weeks_df['team_abv'] == i, column].iloc[0]
         data_list.append(data_value)
