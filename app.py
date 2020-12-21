@@ -1,6 +1,7 @@
 ### TEST code version to run from Haroku ###
 
 import pandas as pd
+import numpy as np
 import dash
 import dash_table
 import dash_core_components as dcc
