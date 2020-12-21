@@ -146,7 +146,7 @@ app.layout = html.Div([
                 html.Div([
                     html.H3(),
                     dcc.Dropdown(id='input_range', 
-                                 options = [{'label' : i, 'value' : i} for i in for i in range(4, tm_game_data['week'].max() + 1)],
+                                 options = [{'label' : i, 'value' : i} for i in range(4, tm_game_data['week'].max() + 1)],
                                  value = 4
                                 )
                 ], className="six columns", style = {'width': '10%'}),
