@@ -421,7 +421,7 @@ def update_table(num_weeks, sort_value):
                                      (get_values_list(prior_weeks, this_week['oppn'], 'int_thrown') +
                                      get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost')))
     
-    #this_week_rank = this_week.copy()
+    this_week_rank = this_week.copy()
     
     # rank all columns in ascending_false
     for i in ascending_false:
