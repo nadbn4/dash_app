@@ -1,71 +1,141 @@
-,week,owner_team_name,owner,score,win,opp_owner_team_name,opp_owner,opp_score
-0,1,Sticky Icky,T-$,166.6,1,Happy Rock Homewreckers,Blainer,139.2
-1,1,Happy Rock Homewreckers,Blainer,139.2,0,Sticky Icky,T-$,166.6
-2,1,Bench Don't Kill My Vibe,Padge,190.0,1,Bud Lathrop Drive,Farmer,149.9
-3,1,Bud Lathrop Drive,Farmer,149.9,0,Bench Don't Kill My Vibe,Padge,190.0
-4,1,Springfield Atoms,Duvi,147.1,0,Pixel Whippers,Sembower,164.8
-5,1,Pixel Whippers,Sembower,164.8,1,Springfield Atoms,Duvi,147.1
-6,1,Seattle rainier riot,Boob,159.4,0,Beacon Hill Posterizers,Bup,172.6
-7,1,Beacon Hill Posterizers,Bup,172.6,1,Seattle rainier riot,Boob,159.4
-8,1,Brookside Shokunin,Cheese,163.3,0,CoMo FightinCamlToes,Doisy,172.6
-9,1,CoMo FightinCamlToes,Doisy,172.6,1,Brookside Shokunin,Cheese,163.3
-10,2,Springfield Atoms,Duvi,154.5,1,Bench Don't Kill My Vibe,Padge,142.4
-11,2,Bench Don't Kill My Vibe,Padge,142.4,0,Springfield Atoms,Duvi,154.5
-12,2,Happy Rock Homewreckers,Blainer,122.1,0,Seattle rainier riot,Boob,218.3
-13,2,Seattle rainier riot,Boob,218.3,1,Happy Rock Homewreckers,Blainer,122.1
-14,2,Sticky Icky,T-$,187.1,0,Brookside Shokunin,Cheese,193.6
-15,2,Brookside Shokunin,Cheese,193.6,1,Sticky Icky,T-$,187.1
-16,2,Bud Lathrop Drive,Farmer,129.2,0,Beacon Hill Posterizers,Bup,191.7
-17,2,Beacon Hill Posterizers,Bup,191.7,1,Bud Lathrop Drive,Farmer,129.2
-18,2,Pixel Whippers,Sembower,167.3,1,CoMo FightinCamlToes,Doisy,157.4
-19,2,CoMo FightinCamlToes,Doisy,157.4,0,Pixel Whippers,Sembower,167.3
-20,3,Brookside Shokunin,Cheese,199.4,1,Seattle rainier riot,Boob,187.8
-21,3,Seattle rainier riot,Boob,187.8,0,Brookside Shokunin,Cheese,199.4
-22,3,Beacon Hill Posterizers,Bup,174.1,1,Bench Don't Kill My Vibe,Padge,169.4
-23,3,Bench Don't Kill My Vibe,Padge,169.4,0,Beacon Hill Posterizers,Bup,174.1
-24,3,CoMo FightinCamlToes,Doisy,175.1,1,Springfield Atoms,Duvi,133.6
-25,3,Springfield Atoms,Duvi,133.6,0,CoMo FightinCamlToes,Doisy,175.1
-26,3,Bud Lathrop Drive,Farmer,185.9,1,Happy Rock Homewreckers,Blainer,107.0
-27,3,Happy Rock Homewreckers,Blainer,107.0,0,Bud Lathrop Drive,Farmer,185.9
-28,3,Pixel Whippers,Sembower,204.5,1,Sticky Icky,T-$,144.4
-29,3,Sticky Icky,T-$,144.4,0,Pixel Whippers,Sembower,204.5
-30,4,CoMo FightinCamlToes,Doisy,122.9,0,Beacon Hill Posterizers,Bup,159.4
-31,4,Beacon Hill Posterizers,Bup,159.4,1,CoMo FightinCamlToes,Doisy,122.9
-32,4,Seattle rainier riot,Boob,195.8,1,Bud Lathrop Drive,Farmer,158.0
-33,4,Bud Lathrop Drive,Farmer,158.0,0,Seattle rainier riot,Boob,195.8
-34,4,Brookside Shokunin,Cheese,185.2,1,Pixel Whippers,Sembower,156.6
-35,4,Pixel Whippers,Sembower,156.6,0,Brookside Shokunin,Cheese,185.2
-36,4,Bench Don't Kill My Vibe,Padge,128.3,0,Happy Rock Homewreckers,Blainer,188.6
-37,4,Happy Rock Homewreckers,Blainer,188.6,1,Bench Don't Kill My Vibe,Padge,128.3
-38,4,Springfield Atoms,Duvi,160.0,1,Sticky Icky,T-$,140.6
-39,4,Sticky Icky,T-$,140.6,0,Springfield Atoms,Duvi,160.0
-40,5,Pixel Whippers,Sembower,152.6,0,Bud Lathrop Drive,Farmer,171.8
-41,5,Bud Lathrop Drive,Farmer,171.8,1,Pixel Whippers,Sembower,152.6
-42,5,Happy Rock Homewreckers,Blainer,137.9,0,Beacon Hill Posterizers,Bup,189.3
-43,5,Beacon Hill Posterizers,Bup,189.3,1,Happy Rock Homewreckers,Blainer,137.9
-44,5,Sticky Icky,T-$,171.2,1,CoMo FightinCamlToes,Doisy,138.9
-45,5,CoMo FightinCamlToes,Doisy,138.9,0,Sticky Icky,T-$,171.2
-46,5,Bench Don't Kill My Vibe,Padge,130.6,0,Seattle rainier riot,Boob,147.1
-47,5,Seattle rainier riot,Boob,147.1,1,Bench Don't Kill My Vibe,Padge,130.6
-48,5,Springfield Atoms,Duvi,121.2,0,Brookside Shokunin,Cheese,136.3
-49,5,Brookside Shokunin,Cheese,136.3,1,Springfield Atoms,Duvi,121.2
-50,6,Bench Don't Kill My Vibe,Padge,107.4,0,Sticky Icky,T-$,191.9
-51,6,Sticky Icky,T-$,191.9,1,Bench Don't Kill My Vibe,Padge,107.4
-52,6,Seattle rainier riot,Boob,131.7,0,Springfield Atoms,Duvi,160.1
-53,6,Springfield Atoms,Duvi,160.1,1,Seattle rainier riot,Boob,131.7
-54,6,Beacon Hill Posterizers,Bup,136.0,0,Brookside Shokunin,Cheese,209.5
-55,6,Brookside Shokunin,Cheese,209.5,1,Beacon Hill Posterizers,Bup,136.0
-56,6,Bud Lathrop Drive,Farmer,156.5,1,CoMo FightinCamlToes,Doisy,117.8
-57,6,CoMo FightinCamlToes,Doisy,117.8,0,Bud Lathrop Drive,Farmer,156.5
-58,6,Happy Rock Homewreckers,Blainer,151.9,1,Pixel Whippers,Sembower,139.3
-59,6,Pixel Whippers,Sembower,139.3,0,Happy Rock Homewreckers,Blainer,151.9
-60,7,Sticky Icky,T-$,127.1,0,Seattle rainier riot,Boob,182.4
-61,7,Seattle rainier riot,Boob,182.4,1,Sticky Icky,T-$,127.1
-62,7,Springfield Atoms,Duvi,178.5,1,Beacon Hill Posterizers,Bup,129.7
-63,7,Beacon Hill Posterizers,Bup,129.7,0,Springfield Atoms,Duvi,178.5
-64,7,Brookside Shokunin,Cheese,245.8,1,Bud Lathrop Drive,Farmer,113.8
-65,7,Bud Lathrop Drive,Farmer,113.8,0,Brookside Shokunin,Cheese,245.8
-66,7,CoMo FightinCamlToes,Doisy,149.6,0,Happy Rock Homewreckers,Blainer,154.5
-67,7,Happy Rock Homewreckers,Blainer,154.5,1,CoMo FightinCamlToes,Doisy,149.6
-68,7,Pixel Whippers,Sembower,131.6,0,Bench Don't Kill My Vibe,Padge,179.8
-69,7,Bench Don't Kill My Vibe,Padge,179.8,1,Pixel Whippers,Sembower,131.6
+week,owner_team_name,owner,score,win,opp_owner_team_name,opp_owner,opp_score
+1,Sticky Icky,T-$,166.6,1,Happy Rock Homewreckers,Blainer,139.2
+1,Happy Rock Homewreckers,Blainer,139.2,0,Sticky Icky,T-$,166.6
+1,Bench Don't Kill My Vibe,Padge,190.0,1,Bud Lathrop Drive,Farmer,149.9
+1,Bud Lathrop Drive,Farmer,149.9,0,Bench Don't Kill My Vibe,Padge,190.0
+1,Springfield Atoms,Duvi,147.1,0,Pixel Whippers,Sembower,164.8
+1,Pixel Whippers,Sembower,164.8,1,Springfield Atoms,Duvi,147.1
+1,Seattle rainier riot,Boob,159.4,0,Beacon Hill Posterizers,Bup,172.6
+1,Beacon Hill Posterizers,Bup,172.6,1,Seattle rainier riot,Boob,159.4
+1,Brookside Shokunin,Cheese,163.3,0,CoMo FightinCamlToes,Doisy,172.6
+1,CoMo FightinCamlToes,Doisy,172.6,1,Brookside Shokunin,Cheese,163.3
+2,Springfield Atoms,Duvi,154.5,1,Bench Don't Kill My Vibe,Padge,142.4
+2,Bench Don't Kill My Vibe,Padge,142.4,0,Springfield Atoms,Duvi,154.5
+2,Happy Rock Homewreckers,Blainer,122.1,0,Seattle rainier riot,Boob,218.3
+2,Seattle rainier riot,Boob,218.3,1,Happy Rock Homewreckers,Blainer,122.1
+2,Sticky Icky,T-$,187.1,0,Brookside Shokunin,Cheese,193.6
+2,Brookside Shokunin,Cheese,193.6,1,Sticky Icky,T-$,187.1
+2,Bud Lathrop Drive,Farmer,129.2,0,Beacon Hill Posterizers,Bup,191.7
+2,Beacon Hill Posterizers,Bup,191.7,1,Bud Lathrop Drive,Farmer,129.2
+2,Pixel Whippers,Sembower,167.3,1,CoMo FightinCamlToes,Doisy,157.4
+2,CoMo FightinCamlToes,Doisy,157.4,0,Pixel Whippers,Sembower,167.3
+3,Brookside Shokunin,Cheese,199.4,1,Seattle rainier riot,Boob,187.8
+3,Seattle rainier riot,Boob,187.8,0,Brookside Shokunin,Cheese,199.4
+3,Beacon Hill Posterizers,Bup,174.1,1,Bench Don't Kill My Vibe,Padge,169.4
+3,Bench Don't Kill My Vibe,Padge,169.4,0,Beacon Hill Posterizers,Bup,174.1
+3,CoMo FightinCamlToes,Doisy,175.1,1,Springfield Atoms,Duvi,133.6
+3,Springfield Atoms,Duvi,133.6,0,CoMo FightinCamlToes,Doisy,175.1
+3,Bud Lathrop Drive,Farmer,185.9,1,Happy Rock Homewreckers,Blainer,107.0
+3,Happy Rock Homewreckers,Blainer,107.0,0,Bud Lathrop Drive,Farmer,185.9
+3,Pixel Whippers,Sembower,204.5,1,Sticky Icky,T-$,144.4
+3,Sticky Icky,T-$,144.4,0,Pixel Whippers,Sembower,204.5
+4,CoMo FightinCamlToes,Doisy,122.9,0,Beacon Hill Posterizers,Bup,159.4
+4,Beacon Hill Posterizers,Bup,159.4,1,CoMo FightinCamlToes,Doisy,122.9
+4,Seattle rainier riot,Boob,195.8,1,Bud Lathrop Drive,Farmer,158.0
+4,Bud Lathrop Drive,Farmer,158.0,0,Seattle rainier riot,Boob,195.8
+4,Brookside Shokunin,Cheese,185.2,1,Pixel Whippers,Sembower,156.6
+4,Pixel Whippers,Sembower,156.6,0,Brookside Shokunin,Cheese,185.2
+4,Bench Don't Kill My Vibe,Padge,128.3,0,Happy Rock Homewreckers,Blainer,188.6
+4,Happy Rock Homewreckers,Blainer,188.6,1,Bench Don't Kill My Vibe,Padge,128.3
+4,Springfield Atoms,Duvi,160.0,1,Sticky Icky,T-$,140.6
+4,Sticky Icky,T-$,140.6,0,Springfield Atoms,Duvi,160.0
+5,Pixel Whippers,Sembower,152.6,0,Bud Lathrop Drive,Farmer,171.8
+5,Bud Lathrop Drive,Farmer,171.8,1,Pixel Whippers,Sembower,152.6
+5,Happy Rock Homewreckers,Blainer,137.9,0,Beacon Hill Posterizers,Bup,189.3
+5,Beacon Hill Posterizers,Bup,189.3,1,Happy Rock Homewreckers,Blainer,137.9
+5,Sticky Icky,T-$,171.2,1,CoMo FightinCamlToes,Doisy,138.9
+5,CoMo FightinCamlToes,Doisy,138.9,0,Sticky Icky,T-$,171.2
+5,Bench Don't Kill My Vibe,Padge,130.6,0,Seattle rainier riot,Boob,147.1
+5,Seattle rainier riot,Boob,147.1,1,Bench Don't Kill My Vibe,Padge,130.6
+5,Springfield Atoms,Duvi,121.2,0,Brookside Shokunin,Cheese,136.3
+5,Brookside Shokunin,Cheese,136.3,1,Springfield Atoms,Duvi,121.2
+6,Bench Don't Kill My Vibe,Padge,107.4,0,Sticky Icky,T-$,191.9
+6,Sticky Icky,T-$,191.9,1,Bench Don't Kill My Vibe,Padge,107.4
+6,Seattle rainier riot,Boob,131.7,0,Springfield Atoms,Duvi,160.1
+6,Springfield Atoms,Duvi,160.1,1,Seattle rainier riot,Boob,131.7
+6,Beacon Hill Posterizers,Bup,136.0,0,Brookside Shokunin,Cheese,209.5
+6,Brookside Shokunin,Cheese,209.5,1,Beacon Hill Posterizers,Bup,136.0
+6,Bud Lathrop Drive,Farmer,156.5,1,CoMo FightinCamlToes,Doisy,117.8
+6,CoMo FightinCamlToes,Doisy,117.8,0,Bud Lathrop Drive,Farmer,156.5
+6,Happy Rock Homewreckers,Blainer,151.9,1,Pixel Whippers,Sembower,139.3
+6,Pixel Whippers,Sembower,139.3,0,Happy Rock Homewreckers,Blainer,151.9
+7,Sticky Icky,T-$,127.1,0,Seattle rainier riot,Boob,182.4
+7,Seattle rainier riot,Boob,182.4,1,Sticky Icky,T-$,127.1
+7,Springfield Atoms,Duvi,178.5,1,Beacon Hill Posterizers,Bup,129.7
+7,Beacon Hill Posterizers,Bup,129.7,0,Springfield Atoms,Duvi,178.5
+7,Brookside Shokunin,Cheese,245.8,1,Bud Lathrop Drive,Farmer,113.8
+7,Bud Lathrop Drive,Farmer,113.8,0,Brookside Shokunin,Cheese,245.8
+7,CoMo FightinCamlToes,Doisy,149.6,0,Happy Rock Homewreckers,Blainer,154.5
+7,Happy Rock Homewreckers,Blainer,154.5,1,CoMo FightinCamlToes,Doisy,149.6
+7,Pixel Whippers,Sembower,131.6,0,Bench Don't Kill My Vibe,Padge,179.8
+7,Bench Don't Kill My Vibe,Padge,179.8,1,Pixel Whippers,Sembower,131.6
+8,Beacon Hill Posterizers,Bup,144.6,1,Seattle rainier riot,Boob,119.0
+8,Seattle rainier riot,Boob,119.0,0,Beacon Hill Posterizers,Bup,144.6
+8,Bud Lathrop Drive,Farmer,124.1,0,Bench Don't Kill My Vibe,Padge,147.2
+8,Bench Don't Kill My Vibe,Padge,147.2,1,Bud Lathrop Drive,Farmer,124.1
+8,Happy Rock Homewreckers,Blainer,145.0,0,Sticky Icky,T-$,151.0
+8,Sticky Icky,T-$,151.0,1,Happy Rock Homewreckers,Blainer,145.0
+8,Pixel Whippers,Sembower,222.3,1,Springfield Atoms,Duvi,139.7
+8,Springfield Atoms,Duvi,139.7,0,Pixel Whippers,Sembower,222.3
+8,Brookside Shokunin,Cheese,107.4,0,CoMo FightinCamlToes,Doisy,140.0
+8,CoMo FightinCamlToes,Doisy,140.0,1,Brookside Shokunin,Cheese,107.4
+9,Happy Rock Homewreckers,Blainer,142.0,1,Brookside Shokunin,Cheese,131.6
+9,Brookside Shokunin,Cheese,131.6,0,Happy Rock Homewreckers,Blainer,142.0
+9,Bud Lathrop Drive,Farmer,160.2,1,Springfield Atoms,Duvi,95.3
+9,Springfield Atoms,Duvi,95.3,0,Bud Lathrop Drive,Farmer,160.2
+9,Sticky Icky,T-$,178.8,1,Beacon Hill Posterizers,Bup,140.0
+9,Beacon Hill Posterizers,Bup,140.0,0,Sticky Icky,T-$,178.8
+9,Seattle rainier riot,Boob,122.4,0,CoMo FightinCamlToes,Doisy,163.4
+9,CoMo FightinCamlToes,Doisy,163.4,1,Seattle rainier riot,Boob,122.4
+9,Bench Don't Kill My Vibe,Padge,166.3,0,Pixel Whippers,Sembower,180.8
+9,Pixel Whippers,Sembower,180.8,1,Bench Don't Kill My Vibe,Padge,166.3
+10,Brookside Shokunin,Cheese,107.1,0,Bench Don't Kill My Vibe,Padge,118.5
+10,Bench Don't Kill My Vibe,Padge,118.5,1,Brookside Shokunin,Cheese,107.1
+10,Bud Lathrop Drive,Farmer,103.5,0,Sticky Icky,T-$,135.7
+10,Sticky Icky,T-$,135.7,1,Bud Lathrop Drive,Farmer,103.5
+10,Pixel Whippers,Sembower,135.2,0,Seattle rainier riot,Boob,202.7
+10,Seattle rainier riot,Boob,202.7,1,Pixel Whippers,Sembower,135.2
+10,CoMo FightinCamlToes,Doisy,117.3,0,Beacon Hill Posterizers,Bup,141.5
+10,Beacon Hill Posterizers,Bup,141.5,1,CoMo FightinCamlToes,Doisy,117.3
+10,Springfield Atoms,Duvi,175.4,1,Happy Rock Homewreckers,Blainer,151.8
+10,Happy Rock Homewreckers,Blainer,151.8,0,Springfield Atoms,Duvi,175.4
+11,Beacon Hill Posterizers,Bup,175.7,1,Pixel Whippers,Sembower,156.5
+11,Pixel Whippers,Sembower,156.5,0,Beacon Hill Posterizers,Bup,175.7
+11,Brookside Shokunin,Cheese,157.7,0,Happy Rock Homewreckers,Blainer,174.8
+11,Happy Rock Homewreckers,Blainer,174.8,1,Brookside Shokunin,Cheese,157.7
+11,Bud Lathrop Drive,Farmer,160.9,1,Seattle rainier riot,Boob,118.9
+11,Seattle rainier riot,Boob,118.9,0,Bud Lathrop Drive,Farmer,160.9
+11,Sticky Icky,T-$,174.5,1,Springfield Atoms,Duvi,152.8
+11,Springfield Atoms,Duvi,152.8,0,Sticky Icky,T-$,174.5
+11,Bench Don't Kill My Vibe,Padge,149.0,0,CoMo FightinCamlToes,Doisy,152.4
+11,CoMo FightinCamlToes,Doisy,152.4,1,Bench Don't Kill My Vibe,Padge,149.0
+12,Sticky Icky,T-$,161.5,1,CoMo FightinCamlToes,Doisy,127.9
+12,CoMo FightinCamlToes,Doisy,127.9,0,Sticky Icky,T-$,161.5
+12,Springfield Atoms,Duvi,204.9,1,Brookside Shokunin,Cheese,142.7
+12,Brookside Shokunin,Cheese,142.7,0,Springfield Atoms,Duvi,204.9
+12,Seattle rainier riot,Boob,172.6,1,Happy Rock Homewreckers,Blainer,150.3
+12,Happy Rock Homewreckers,Blainer,150.3,0,Seattle rainier riot,Boob,172.6
+12,Beacon Hill Posterizers,Bup,170.8,1,Bench Don't Kill My Vibe,Padge,129.6
+12,Bench Don't Kill My Vibe,Padge,129.6,0,Beacon Hill Posterizers,Bup,170.8
+12,Pixel Whippers,Sembower,263.0,1,Bud Lathrop Drive,Farmer,142.4
+12,Bud Lathrop Drive,Farmer,142.4,0,Pixel Whippers,Sembower,263.0
+13,Brookside Shokunin,Cheese,249.3,0,Beacon Hill Posterizers,Bup,334.3
+13,Beacon Hill Posterizers,Bup,334.3,1,Brookside Shokunin,Cheese,249.3
+13,Pixel Whippers,Sembower,312.7,0,Sticky Icky,T-$,427.4
+13,Sticky Icky,T-$,427.4,1,Pixel Whippers,Sembower,312.7
+13,Springfield Atoms,Duvi,300.3,0,Seattle rainier riot,Boob,302.2
+13,Seattle rainier riot,Boob,302.2,1,Springfield Atoms,Duvi,300.3
+13,Bud Lathrop Drive,Farmer,364.8,1,Happy Rock Homewreckers,Blainer,260.5
+13,Happy Rock Homewreckers,Blainer,260.5,0,Bud Lathrop Drive,Farmer,364.8
+13,Bench Don't Kill My Vibe,Padge,254.0,0,CoMo FightinCamlToes,Doisy,311.3
+13,CoMo FightinCamlToes,Doisy,311.3,1,Bench Don't Kill My Vibe,Padge,254.0
+14,Sticky Icky,T-$,388.5,1,Beacon Hill Posterizers,Bup,323.9
+14,Beacon Hill Posterizers,Bup,323.9,0,Sticky Icky,T-$,388.5
+14,Brookside Shokunin,Cheese,287.2,1,Pixel Whippers,Sembower,259.3
+14,Pixel Whippers,Sembower,259.3,0,Brookside Shokunin,Cheese,287.2
+14,Bud Lathrop Drive,Farmer,296.6,0,Seattle rainier riot,Boob,326.0
+14,Seattle rainier riot,Boob,326.0,1,Bud Lathrop Drive,Farmer,296.6
+14,CoMo FightinCamlToes,Doisy,352.1,1,Springfield Atoms,Duvi,305.5
+14,Springfield Atoms,Duvi,305.5,0,CoMo FightinCamlToes,Doisy,352.1
+14,Bench Don't Kill My Vibe,Padge,297.4,0,Happy Rock Homewreckers,Blainer,431.2
+14,Happy Rock Homewreckers,Blainer,431.2,1,Bench Don't Kill My Vibe,Padge,297.4
