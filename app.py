@@ -13,36 +13,28 @@ import plotly.express as px
 #from jupyter_dash import JupyterDash
 
 ########### read in data
-win_loss_df = pd.read_pickle("win_loss_df.pkl").sort_values(['wins', 'points_for'], ascending = False)
+win_loss_df = pd.read_csv("win_loss_df.csv").sort_values(['wins', 'points_for'], ascending = False)
 matchups_df = pd.read_csv("matchups_df.csv")
 rosters_df = pd.read_csv("rosters_df.csv")
-rosters_df = rosters_df[rosters_df.columns[rosters_df.columns!='Unnamed: 0']]
 tm_game_data = pd.read_csv("tm_game_data.csv")
-tm_game_data = tm_game_data[tm_game_data.columns[tm_game_data.columns!='Unnamed: 0']]
 this_week = pd.read_csv("this_week.csv")
-this_week = this_week[this_week.columns[this_week.columns!='Unnamed: 0']]
-
-max_week = tm_game_data['week'].max()
+this_week_rank = pd.read_csv("this_week.csv")
+this_week_rank_avg = pd.read_csv("this_week.csv")
 
 ########### define functions
 # create agg_week function to sum all stats within the user defined time frame
 def agg_week(weekly_boxscore, num_weeks):
-    num_weeks = weekly_boxscore["week"].max() - num_weeks + 1
+    num_weeks_limit = weekly_boxscore["week"].max() - num_weeks
     weekly_boxscore = weekly_boxscore[(weekly_boxscore["week"] <= weekly_boxscore["week"].max()) & \
-                                      (weekly_boxscore["week"] >= num_weeks)]
+                                      (weekly_boxscore["week"] > num_weeks_limit)]
     gp_df = weekly_boxscore['team_abv'].value_counts().sort_index().reset_index()    
     weekly_boxscore = weekly_boxscore.groupby(['team_abv']).sum().sort_values(['team_abv']).reset_index()
     weekly_boxscore['gp'] = gp_df['team_abv']
     return weekly_boxscore
 
 # create function to grab team or boxscore stat from prior_weeks dataframe
-def get_values_list(prior_weeks_df, team, column):   
-    data_list = []
-    for i in team.tolist():
-        team_idx = prior_weeks_df.index[prior_weeks_df['team_abv'] == i][0]
-        data_value = prior_weeks_df.at[team_idx, column]
-        #data_value = prior_weeks_df.loc[prior_weeks_df['team_abv'] == i, column].iloc[0]
-        data_list.append(data_value)
+def get_values_list(prior_weeks_df, team, column):  
+    data_list = [prior_weeks_df.loc[prior_weeks_df['team_abv'] == i, column].iloc[0] for i in team.tolist()]
     return np.array(data_list)
 
 # create list of columns to rank in decending order
@@ -54,45 +46,27 @@ ascending_false = ['pass_td', 'pass_yrd_per_pass', 'pass_1st_dwn', 'pass_yrd', '
 ascending_true = ['def_st_td_alw', 'def_st_yrd_alw']
 
 graph_options = ['wins/losses', 'points for/points against']
-subset_options = ['QB', 'RB', 'WRTE', 'DEF', 'KICK']
 columns = ['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']
-more_columns = ['pass_td_per_gm', 'pass_td_alw_per_gm', 'pass_yrd_per_gm',
-       'pass_yrd_alw_per_gm', 'pass_yrd_per_pass', 'pass_yrd_alw_per_pass_alw',
-       'pass_1st_down_per_gm', 'pass_1st_down_alw_per_gm', 'rush_td_per_gm',
-       'rush_td_alw_per_gm', 'rush_yrd_per_gm', 'rush_yrd_alw_per_gm',
-       'rush_yrd_per_rush', 'rush_yrd_alw_per_rush_alw',
-       'rush_1st_down_per_gm', 'rush_1st_down_alw_per_gm', 'rec_yrd_per_gm',
-       'rec_yrd_alw_per_gm', 'rec_yrd_per_tar', 'rec_yrd_alw_per_tar_alw',
-       'rec_tar_per_gm', 'rec_tar_alw_per_gm', 'rec_per_gm', 'rec_alw_per_gm',
-       'def_st_td_per_gm', 'def_st_td_alw_per_gm', 'fumble_per_gm',
-       'fumble_lost_per_gm', 'int_per_gm', 'int_alw_per_gm', 'sacks_per_gm',
-       'sacks_taken_per_gm', 'kck_pts_per_gm', 'kck_pts_alw_per_gm',
-       'return_yrds_per_gm', 'return_yrds_alw_per_gm']
-new_columns = tm_game_data.columns.values.tolist() + more_columns
-this_week_columns = ['week', 'team_abv', 'home', 'oppn', 'pass_td', 'pass_yrd_per_pass', 'pass_1st_dwn', 'pass_yrd',
-                     'rush_td', 'rush_yrd_per_rush', 'rush_1st_down', 'rush_yrd', 'rec_td', 'rec_yrd_per_gm',
-                     'rec_yrd_per_tar', 'rec_per_gm', 'rec_1st_down', 'def_st_td', 'def_sack', 'def_int', 'def_fbml',
-                     'def_st_td_alw', 'def_st_yrd_alw', 'kck_pts', 'rz_diff', 'to_diff']
-
 myheading = 'Raytonia Beach Fantasy Football League'
 tabtitle='Raytown!'
 
-weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week',
-                            hover_name='owner_team_name', hover_data={"week" : False,
-                                                                      'owner_team_name' : False,
-                                                                      'score' : True
-                                                                     }
+weekly_points_fig = px.line(matchups_df, x = 'week', y = 'score', 
+                            color = 'owner_team_name', 
+                            title = 'Scores per Week',
+                            hover_name='owner_team_name', 
+                            hover_data={'week' : False,
+                                        'owner_team_name' : False,
+                                        'score' : True
+                                        }
                            )
 
-#weekly_points_fig = px.line(matchups_df, x="week", y="score", color = 'owner_team_name', title = 'Scores per Week')
-
-weekly_points_fig.update_xaxes(range=[0.95, 7.05], dtick=1)
+weekly_points_fig.update_xaxes(range=[0.95, 14.05], dtick=1)
 weekly_points_fig.layout.update(showlegend=False)
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-#app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
+#app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 
@@ -119,7 +93,26 @@ app.layout = html.Div([
                     html.H3(),
                     dcc.Graph(id='weekly_points', figure=weekly_points_fig)
                 ], className="six columns"),
+            ], className="row")
+]),
+        dcc.Tab(label = 'Weekly NFL Matchup Rankings', children = [
+            html.Div([
+                html.Div([
+                    html.H3(),
+                    dcc.Dropdown(id='input_range', 
+                                 options = [{'label' : i, 'value' : i} for i in range(1, tm_game_data['week'].max() + 1)],
+                                 value = 4
+                                )
+                ], className="six columns", style = {'width': '10%'})
             ], className="row"),
+            html.Div(
+                dash_table.DataTable(id = 'rankings_table',
+                                     columns=[{"name": i, "id": i} for i in columns],
+                                     sort_action='native'
+                                    )
+            )
+        ]),
+        dcc.Tab(label = 'Weekly Raytonia Beach Rosters & Predictions', children = [
             html.Div([
                 html.Div([
                     html.H3(),
@@ -139,39 +132,8 @@ app.layout = html.Div([
             html.Div(
                 dash_table.DataTable(id = 'roster_table',
                                      columns=[{"name": i, "id": i} for i in rosters_df.columns]
-        )
-    )
-]),
-        dcc.Tab(label = 'Weekly NFL Matchup Rankings', children = [
-            html.Div([
-                html.Div([
-                    html.H3(),
-                    dcc.Dropdown(id='input_range', 
-                                 options = [{'label' : i, 'value' : i} for i in range(4, tm_game_data['week'].max() + 1)],
-                                 value = 4
-                                )
-                ], className="six columns", style = {'width': '10%'}),
-                html.Div([
-                    html.H3(),
-                    dcc.Dropdown(id = 'subset_option', 
-                                 options = [{'label' : i, 'value' : i} for i in subset_options],
-                                 value = 'QB'
-                                )
-                ], className="six columns", style = {'width': '10%'})
-            ], className="row"),
-            html.Div(
-                dash_table.DataTable(id = 'rankings_table',
-                                     columns=[{"name": i, "id": i} for i in columns]
                                     )
-            )
-        ]),
-        dcc.Tab(label = 'Weekly Raytonia Beach Rosters & Predictions', children = [
-            html.Div(
-                dash_table.DataTable(id = 'this_week_table',
-                                     columns=[{"name": i, "id": i} for i in this_week],
-                                     data = this_week.to_dict('records')
-                                    )
-            )
+            )            
         ])
 ])
 ])
@@ -203,8 +165,8 @@ def update_graph(column_options):
         win_loss_layout = go.Layout(barmode = 'overlay',
                                     hovermode = 'x',
                                     title = 'Wins/Losses',
-                                    yaxis = dict(tickvals = [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5],
-                                                 ticktext = [5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5]
+                                    yaxis = dict(tickvals = [10, 5, 0, -5, -10],
+                                                 ticktext = [10, 5, 0, 5, 10]
                                                 )
                                    )
 
@@ -231,8 +193,8 @@ def update_graph(column_options):
         win_loss_layout = go.Layout(barmode = 'overlay',
                                     hovermode = 'x',
                                     title = 'points_for/points_against',
-                                    yaxis = dict(tickvals=[1200, 800, 400, 0, -400, -800, -1200], 
-                                                 ticktext = [1200, 800, 400, 0, 400, 800, 1200]
+                                    yaxis = dict(tickvals=[3000, 2000, 1000, 0, -1000, -2000, -3000], 
+                                                 ticktext = [3000, 2000, 1000, 0, 1000, 2000, 3000]
                                                 )
                                    )
 
@@ -253,11 +215,10 @@ def update_table(week, team):
 
 @app.callback(
     Output('rankings_table', 'data'),
-    [Input('input_range', 'value'),
-     Input('subset_option', 'value')
+    [Input('input_range', 'value')
     ])
 
-def update_table(num_weeks, sort_value):
+def update_table(num_weeks):
     prior_weeks = agg_week(tm_game_data, num_weeks)
 
     # aggregate qb stats
@@ -310,8 +271,6 @@ def update_table(num_weeks, sort_value):
     prior_weeks['return_yrds_per_gm'] = (prior_weeks['kick_ret_yrds'] + prior_weeks['punt_ret_yrds']) / prior_weeks['gp']
     prior_weeks['return_yrds_alw_per_gm'] = (prior_weeks['kick_ret_yrds_alw'] + prior_weeks['punt_ret_yrds_alw']) / \
                                             prior_weeks['gp']
-    
-#     #this_week = this_week.copy()
     
     # qb
     # multiply how many TDs thrown per game by team and how many passing TDs allowed per game by opponent
@@ -421,8 +380,6 @@ def update_table(num_weeks, sort_value):
                                      (get_values_list(prior_weeks, this_week['oppn'], 'int_thrown') +
                                      get_values_list(prior_weeks, this_week['oppn'], 'fumble_lost')))
     
-    this_week_rank = this_week.copy()
-    
     # rank all columns in ascending_false
     for i in ascending_false:
         this_week_rank[i] = this_week[i].rank(method='average', ascending = False)
@@ -430,12 +387,10 @@ def update_table(num_weeks, sort_value):
     # rank all columns in ascending_false
     for i in ascending_true:
         this_week_rank[i] = this_week[i].rank(method='average', ascending = True)
-        
-    # create dataframe of current weeks matchups
-    this_week_rank_avg = this_week.copy()
-
+    
     # add "@" to oppn column since all opponents are the home teams due to how the schedule is scraped from ESPN
-    this_week_rank_avg['oppn'] = '@' + this_week_rank_avg['oppn'].astype(str)
+    this_week_rank_avg.loc[this_week_rank_avg['home'] == False, 'oppn'] = '@' + this_week_rank_avg['oppn'].astype(str)
+    this_week_rank_avg.loc[this_week_rank_avg['home'] == True, 'team_abv'] = '@' + this_week_rank_avg['team_abv'].astype(str)
 
     # group by QB, RB, WR/TE, DEF, and ST using row means
     this_week_rank_avg['QB'] = this_week_rank.iloc[:, [4, 5, 6, 7, 22, 23]].mean(axis=1)
@@ -444,8 +399,7 @@ def update_table(num_weeks, sort_value):
     this_week_rank_avg['DEF'] = this_week_rank.iloc[:, [17, 18, 19, 20, 22, 23, 24, 25]].mean(axis=1)
     this_week_rank_avg['KICK'] = this_week_rank.iloc[:, [21, 22, 23]].mean(axis=1)
     
-    #sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', sort_value]].sort_values(sort_value)
-    sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']]
+    sorted_df = this_week_rank_avg[['week', 'team_abv', 'oppn', 'QB', 'RB', 'WRTE', 'DEF', 'KICK']].round({'QB': 1, 'RB': 1, 'WRTE': 1, 'DEF': 1, 'KICK': 1})
 
     return sorted_df.to_dict(orient='records')
 
