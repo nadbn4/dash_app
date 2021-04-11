@@ -65,8 +65,8 @@ weekly_points_fig.layout.update(showlegend=False)
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-#app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+#app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 
